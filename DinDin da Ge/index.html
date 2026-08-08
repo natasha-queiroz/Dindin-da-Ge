@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dindin da Ge | Dindin Gourmet</title>
+
+    <meta name="description"
+          content="Dindin da Ge - Dindins gourmet deliciosos, cremosos e feitos com carinho. Reserve o seu!">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8df;
+            color: #3b1600;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: linear-gradient(135deg, #ec0872, #ff1688);
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: #ffe600;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffe600;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 70px 8%;
+            background:
+                radial-gradient(circle at 90% 20%, #ffe600 0 12%, transparent 13%),
+                linear-gradient(135deg, #fff8df, #fff1c2);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #3b1600;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 105px);
+            line-height: .85;
+            color: #ed0871;
+            text-shadow:
+                4px 4px 0 white,
+                7px 7px 0 #ffdf00;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            color: #3b1600;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .price {
+            display: inline-block;
+            margin: 25px 0;
+            background: #ffe000;
+            border: 5px solid #ed0871;
+            border-radius: 30px;
+            padding: 15px 30px;
+            font-size: 32px;
+            font-weight: 900;
+            color: #ed0871;
+            transform: rotate(-2deg);
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            background: #25d366;
+            color: white;
+            padding: 17px 28px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: #1ebe5b;
+        }
+
+        .hero-image {
+            width: 430px;
+            max-width: 100%;
+            min-height: 430px;
+            border-radius: 40px;
+            background:
+                linear-gradient(
+                    rgba(236,8,114,.1),
+                    rgba(236,8,114,.1)
+                ),
+                #f7c3d9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,.18);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .fake-image {
+            text-align: center;
+            font-size: 90px;
+        }
+
+        /* =========================
+           SABORES
+        ========================= */
+
+        .sabores {
+            padding: 80px 7%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 48px;
+            color: #ed0871;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .sabores-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .sabor {
+            border-radius: 25px;
+            overflow: hidden;
+            background: #fff8df;
+            border: 3px solid #ffe000;
+            transition: .3s;
+        }
+
+        .sabor:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,.15);
+        }
+
+        .sabor-img {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+            background: linear-gradient(135deg, #fff0a8, #ffd900);
+        }
+
+        .sabor:nth-child(2) .sabor-img {
+            background: linear-gradient(135deg, #fff, #ead6c1);
+        }
+
+        .sabor:nth-child(3) .sabor-img {
+            background: linear-gradient(135deg, #ddd, #222);
+        }
+
+        .sabor:nth-child(4) .sabor-img {
+            background: linear-gradient(135deg, #eaffbd, #a9d65c);
+        }
+
+        .sabor:nth-child(5) .sabor-img {
+            background: linear-gradient(135deg, #ffb4c9, #ff719d);
+        }
+
+        .sabor:nth-child(6) .sabor-img {
+            background: linear-gradient(135deg, #ffe8a0, #d9943a);
+        }
+
+        .sabor-info {
+            padding: 20px;
+        }
+
+        .sabor h3 {
+            font-size: 23px;
+            color: #ed0871;
+            margin-bottom: 8px;
+        }
+
+        .sabor p {
+            line-height: 1.5;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ed0871, #ff1688);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta .btn {
+            background: #ffe000;
+            color: #3b1600;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #3b1600;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer strong {
+            color: #ffe000;
+        }
+
+        /* =========================
+           WHATSAPP FLUTUANTE
+        ========================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,.3);
+            z-index: 999;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 20px;
+            }
+
+            .hero p {
+                margin: auto;
+            }
+
+            .hero-image {
+                width: 90%;
+                min-height: 300px;
+            }
+
+            .sabores-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .sabores {
+                padding: 60px 15px;
+            }
+
+            .sabores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 38px;
+            }
+
+            .cta h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            Dindin <span>da Ge</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sabores">Sabores</a>
+            <a href="#contato">Reservar</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-text">
+
+            <span class="tag">🍧 DINDIN GOURMET</span>
+
+            <h1>Dindin<br>da Ge</h1>
+
+            <h2>Feito com carinho para adoçar seu dia! 💕</h2>
+
+            <p>
+                Dindins cremosos, deliciosos e preparados
+                com muito carinho. Escolha seu sabor favorito
+                e reserve o seu!
+            </p>
+
+            <div class="price">
+                R$ 4,00 cada
+            </div>
+
+            <br>
+
+            <a
+                href="#sabores"
+                class="btn">
+                🍧 Ver sabores
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <!--
+                COLOQUE A FOTO DOS SEUS DINDINS AQUI.
+
+                Exemplo:
+                <img src="imagens/dindins.jpg" alt="Dindins da Ge">
+            -->
+
+            <div class="fake-image">
+                🍫 🍓 🥥
+                <br>
+                🍋 🍮 🍪
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SABORES -->
+
+    <section class="sabores" id="sabores">
+
+        <div class="section-title">
+
+            <h2>🍧 Nossos Sabores</h2>
+
+            <p>
+                Qual vai ser o seu favorito?
+            </p>
+
+        </div>
+
+
+        <div class="sabores-grid">
+
+
+            <!-- MARACUJÁ -->
+
+            <div class="sabor">
+
+                <div class="sabor-img">
+                    🥭
+                </div>
+
+                <div class="sabor-info">
+
+                    <h3>Maracujá</h3>
+
+                    <p>
+                        Refrescante, cremoso e
+                        irresistível!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NINHO -->
+
+            <div class="sabor">
+
+                <div class="sabor-img">
+                    🍫
+                </div>
+
+                <div class="sabor-info">
+
+                    <h3>Ninho com Chocolates</h3>
+
+                    <p>
+                        Cremoso e cheio de
+                        pedacinhos de chocolate.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- OREO -->
+
+            <div class="sabor">
+
+                <div class="sabor-img">
+                    🍪
+                </div>
+
+                <div class="sabor-info">
+
+                    <h3>Oreo</h3>
+
+                    <p>
+                        O sabor que todo mundo
+                        ama!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- COCO -->
+
+            <div class="sabor">
+
+                <div class="sabor-img">
+                    🥥
+                </div>
+
+                <div class="sabor-info">
+
+                    <h3>Coco</h3>
+
+                    <p>
+                        Suave, cremoso e
+                        super saboroso.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MORANGO -->
+
+            <div class="sabor">
+
+                <div class="sabor-img">
+                    🍓
+                </div>
+
+                <div class="sabor-info">
+
+                    <h3>Morango com Calda de Chocolate</h3>
+
+                    <p>
+                        A combinação perfeita
+                        de doce e fruta.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PUDIM -->
+
+            <div class="sabor">
+
+                <div class="sabor-img">
+                    🍮
+                </div>
+
+                <div class="sabor-info">
+
+                    <h3>Pudim</h3>
+
+                    <p>
+                        Sabor de pudim que
+                        derrete na boca!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta" id="contato">
+
+        <h2>Gostou? Reserve o seu! 😍</h2>
+
+        <p>
+            Escolha seus sabores e mande uma mensagem
+            pelo WhatsApp.
+        </p>
+
+        <a
+            href="#"
+            class="btn"
+            onclick="reservarGeral()">
+
+            📱 Reservar meu Dindin
+
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            <strong>Dindin da Ge</strong>
+        </p>
+
+        <p>
+            Dindin gourmet feito com carinho 💕
+        </p>
+
+        <p>
+            WhatsApp: (85) 8655-3888
+        </p>
+
+    </footer>
+
+
+    <!-- WHATSAPP -->
+
+    <a
+        href="#"
+        class="whatsapp"
+        onclick="reservarGeral()"
+        title="Reservar pelo WhatsApp">
+
+        ☎
+
+    </a>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // Número do WhatsApp
+        const telefone = "558586553888";
+
+
+        function reservarGeral() {
+
+            const mensagem =
+                "Olá! 😊 Gostaria de reservar Dindin da Ge.%0A%0A" +
+                "Sabores:%0A" +
+                "• Maracujá%0A" +
+                "• Ninho com Chocolates%0A" +
+                "• Oreo%0A" +
+                "• Coco%0A" +
+                "• Morango com calda de chocolate%0A" +
+                "• Pudim%0A%0A" +
+                "Gostaria de saber quais sabores estão disponíveis!";
+
+            const url =
+                "https://wa.me/" +
+                telefone +
+                "?text=" +
+                mensagem;
+
+            window.open(url, "_blank");
+
+        }
+
+    </script>
+
+</body>
+</html>
