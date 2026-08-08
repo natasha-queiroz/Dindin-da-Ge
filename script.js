@@ -16,7 +16,7 @@ const TELEFONE = "558586553888";
 
 const sabores = {
 
-    "Maracujá": 0,
+    "Maracuja": 0,
 
     "Ninho com Chocolates": 0,
 
